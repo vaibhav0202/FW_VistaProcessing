@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<config>
+	<default>
+
+        <vistaprocessing_section>
+            <vistaprocessing_group>
+                <vistaprocessing_saocode>WBP</vistaprocessing_saocode>
+                <vistaprocessing_emailnotice>devteam@fwmedia.com</vistaprocessing_emailnotice>
+            </vistaprocessing_group>
+        </vistaprocessing_section>
+        
+	</default>
+
+	<modules>
+		<FW_VistaProcessing>
+			<version>1.0.0</version>
+		</FW_VistaProcessing>
+	</modules>
+
+	<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <vistaprocessing  before="Mage_Adminhtml">FW_VistaProcessing_Adminhtml</vistaprocessing>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	
+	<adminhtml>
+		<layout>
+            <updates>
+                <vistaprocessing>
+                    <file>vistaprocessing.xml</file>
+                </vistaprocessing>
+            </updates>
+        </layout>
+	</adminhtml>
+	
+	<frontend>
+		<routers>
+			<vistaprocessing>
+				<use>standard</use>
+				<args>
+					<module>FW_VistaProcessing</module>
+					<frontName>vistaprocessing</frontName>
+				</args>
+			</vistaprocessing>
+			<paypal>
+				 <args>
+						 <modules>
+								 <fw_vistaprocessing before="Mage_Paypal_IpnController">FW_VistaProcessing</fw_vistaprocessing>
+						 </modules>
+				 </args>
+		 </paypal>
+		</routers>
+	</frontend>
+	
+	<global>
+		<models>
+			<vistaprocessing>
+				<class>FW_VistaProcessing_Model</class>
+			</vistaprocessing>
+		</models>
+		
+		<blocks>
+			<adminhtml>
+				<rewrite>
+					<sales_order_grid>FW_VistaProcessing_Block_Adminhtml_Order_Grid</sales_order_grid>
+				</rewrite>
+			</adminhtml>
+			<vistaprocessing>
+				<class>FW_VistaProcessing_Block</class>
+            		</vistaprocessing>
+		</blocks>
+		
+		<helpers>
+			<vistaprocessing>
+				<class>FW_VistaProcessing_Helper</class>
+			</vistaprocessing>
+		</helpers>
+
+		<resources>
+			<vistaprocessing_setup>
+				<setup>
+					<module>FW_VistaProcessing</module>
+					<class>FW_VistaProcessing_Model_Resource_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</vistaprocessing_setup>
+			
+			<vistaprocessing_write>
+            	<connection>
+                	<use>core_write</use>
+            	</connection>
+        	</vistaprocessing_write>
+        	
+        	<vistaprocessing_read>
+            	<connection>
+                	<use>core_read</use>
+            	</connection>
+        	</vistaprocessing_read>
+        	 
+		</resources>
+		
+		<events>
+			<checkout_onepage_controller_success_action>
+				<observers>
+					<fw_vistaprocessing_process_vista_order_accept_observer>
+						<type>singleton</type>
+						<class>vistaprocessing/observer</class>
+						<method>process_vista_order_accept</method>
+					</fw_vistaprocessing_process_vista_order_accept_observer>
+				</observers>
+			</checkout_onepage_controller_success_action>
+		</events>
+	</global>
+	
+	<!--<crontab>
+		<jobs>
+			<fw_vistaprocessing_paypal>
+				<schedule>
+					<cron_expr>0 */4 * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>vistaprocessing/observer::completePayPalFailedOrders</model>
+				</run>
+			</fw_vistaprocessing_paypal>
+		</jobs>
+	</crontab>-->
+	
+</config>

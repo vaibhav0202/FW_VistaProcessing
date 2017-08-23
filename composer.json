@@ -1,0 +1,12 @@
+{
+    "name": "fwcommunity/magento_fw_VistaProcessing_CE",
+    "description": "FW Pebbel module",
+    "license": "OSL-3.0",
+    "authors": [
+        { "name": "Frank", "email": "frank@saltcitydigital.com", "role": "Developer" }
+    ],
+    "type": "magento-module",
+    "require": {
+        "php": ">=5.6.0"
+    }
+}

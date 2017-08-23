@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <vistaprocessing_tab translate="label" module="vistaprocessing">
+            <label>FW Vista</label>
+            <sort_order>300</sort_order>
+        </vistaprocessing_tab>
+    </tabs>
+    <sections>
+        <vistaprocessing_section translate="label" module="vistaprocessing">
+            <label>Order Configuration</label>
+            <tab>vistaprocessing_tab</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <vistaprocessing_group translate="label">
+                    <label>FW Vista Processing Options</label>
+                    <comment>Store Settings for FW Vista Order processing</comment>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <vistaprocessing_saocode translate="label tooltip comment">
+                            <label>Store SAO Code</label>
+                            <comment>Please enter SAO Code for VISTA Order processing</comment>
+                            <tooltip>Please enter SAO Code for VISTA Order processing</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </vistaprocessing_saocode>
+                        <vistaprocessing_emailnotice translate="label tooltip comment">
+                            <label>Email address(es) to notify in case of processing errors. (comma sparated)</label>
+                            <comment>Please enter Email address(es) to notify in case of processing errors.</comment>
+                            <tooltip>Please enter Email address(es) to notify in case of processing errors.</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </vistaprocessing_emailnotice>
+                    </fields>
+                </vistaprocessing_group>
+            </groups>
+        </vistaprocessing_section>
+        <vistainventory_section translate="label" module="vistaprocessing">
+            <label>Inventory File Processing</label>
+            <tab>vistaprocessing_tab</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <vistainventory_group translate="label">
+                    <label>Vista Inventory Settings</label>
+                    <comment>Settings for Vista Inventory File processing</comment>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <vistainventory_host translate="label tooltip comment">
+                            <label>FTP Host</label>
+                            <comment>FTP Host</comment>
+                            <tooltip>FTP Host</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_host>
+                        <vistainventory_user translate="label tooltip comment">
+                            <label>FTP User</label>
+                            <comment>FTP User</comment>
+                            <tooltip>FTP User</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_user>
+                        <vistainventory_password translate="label tooltip comment">
+                            <label>FTP Password</label>
+                            <comment>FTP Password</comment>
+                            <tooltip>FTP Password</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_password>
+                        <vistainventory_folder translate="label tooltip comment">
+                            <label>FTP Remote Folder</label>
+                            <comment>FTP Remote Folder</comment>
+                            <tooltip>FTP Remote Folder</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_folder>
+                        <vistainventory_emailnotice translate="label tooltip comment">
+                            <label>Email address(es) to notify in case of processing errors. (comma sparated)</label>
+                            <comment>Please enter Email address(es) to notify in case of processing errors.</comment>
+                            <tooltip>Please enter Email address(es) to notify in case of processing errors.</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_emailnotice>
+                        <vistainventory_enablesao translate="label">
+                            <label>Enable SAO Code Restriction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_enablesao>
+                        <vistainventory_saocodes translate="label tooltip comment">
+                            <depends>
+                                <vistainventory_enablesao>1</vistainventory_enablesao>
+                            </depends>
+                            <label>SAO Codes (only process products associated with these SAO codes)</label>
+                            <comment>Enter SAO Codes (comma separated)</comment>
+                            <tooltip>Enter SAO Codes (comma separated)</tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </vistainventory_saocodes>
+                    </fields>
+                </vistainventory_group>
+            </groups>
+        </vistainventory_section>
+    </sections>
+</config>

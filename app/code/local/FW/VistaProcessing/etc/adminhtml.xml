@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <vistaprocessing_section translate="title" module="vistaprocessing">
+                                        <title>FW Vista Section</title>
+                                        <sort_order>50</sort_order>
+                                    </vistaprocessing_section>
+                                    <vistainventory_section translate="title" module="vistaprocessing">
+                                        <title>FW Vista FTP</title>
+                                        <sort_order>55</sort_order>
+                                    </vistainventory_section>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
