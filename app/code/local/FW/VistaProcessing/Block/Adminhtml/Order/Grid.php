@@ -16,6 +16,7 @@ class FW_VistaProcessing_Block_Adminhtml_Order_Grid extends Mage_Adminhtml_Block
 	 *
 	 * @return string
 	 */
+	echo "test";
 	protected function _getCollectionClass()
 	{
 		return 'sales/order_grid_collection';
